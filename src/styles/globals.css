@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-track {
+  height: '180px';
+}
+
+@layer base {
+  html {
+    font-family: system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .dialog {
+    @apply inline-block w-full text-left align-bottom transition-all transform bg-white rounded-md shadow-xl sm:my-8 sm:align-middle;
+  }
+
+  .dialog-header {
+    @apply flex items-center justify-between py-4 pl-6 pr-5 text-lg font-bold border-b-2 border-gray-100;
+  }
+
+  .dialog-header-title {
+    @apply items-center text-lg font-bold text-gray-800;
+  }
+
+  .dialog-header-close-icon {
+    @apply w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-500;
+  }
+
+  .dialog-content {
+    @apply px-6 pt-6 pb-10;
+  }
+
+  .dialog-footer {
+    @apply flex justify-end px-5 py-5 space-x-2 border-t-2 border-gray-100 bg-gray-50 rounded-b-md;
+  }
+
+  .slick-track {
+    @apply h-[180px];
+  }
+}
+
