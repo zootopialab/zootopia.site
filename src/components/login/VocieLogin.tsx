@@ -1,6 +1,6 @@
 import React from "react";
 
-const VocieLogin = () => {
+const VocieLogin = ({ transcript, decibel }) => {
   return (
     <>
       <div className="flex flex-col h-full overflow-y-auto bg-white shadow-[0_25px_25px_-5px_rgba(0,0,0,.4)]">
@@ -12,7 +12,8 @@ const VocieLogin = () => {
 
           {/* container */}
           <div className="py-6 space-y-6 sm:space-y-0 sm:divide-y sm:divide-gray-200 sm:py-0">
-            <p>d</p>
+            <p>Transcript: {transcript}</p>
+            <p>Decibel: {decibel}</p>
           </div>
         </div>
       </div>

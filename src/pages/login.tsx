@@ -1,12 +1,87 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import VocieLogin from "../components/login/VocieLogin";
 import { useDialog } from "../components/useDialog/useDialog";
 
 const Login = () => {
   const { openSidebar } = useDialog();
+  const [decibel, setDecibel] = useState(0);
+  const [recognition, setRecognition] = useState(null);
+  const [transcript, setTranscript] = useState("");
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const newRecognition = new window.webkitSpeechRecognition();
+    newRecognition.interimResults = true;
+    newRecognition.continuous = true;
+    newRecognition.lang = "ko-KR";
+
+    console.log("asdf");
+    newRecognition.onresult = (event) => {
+      const interimTranscript = Array.from(event.results)
+        .map((result) => result[0].transcript)
+        .join("");
+      setTranscript(interimTranscript);
+    };
+
+    newRecognition.onstart = (event) => {
+      console.log("on start" + new Date());
+    };
+
+    newRecognition.onend = (event) => {
+      console.log("on end" + new Date());
+      newRecognition.start();
+    };
+
+    setRecognition(newRecognition);
+  }, []);
 
   const handleClick = () => {
-    openSidebar(<VocieLogin />);
+    const audioContext = new AudioContext();
+    const analyser = audioContext.createAnalyser();
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    const getDecibel = () => {
+      requestAnimationFrame(getDecibel);
+      analyser.getByteFrequencyData(dataArray);
+
+      let sum = 0;
+      for (let i = 0; i < bufferLength; i++) {
+        sum += dataArray[i];
+      }
+      const rms = Math.sqrt(sum / bufferLength);
+      const decibel = (20 * Math.log10(rms)).toFixed(0);
+      setDecibel(decibel);
+    };
+
+    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+      const source = audioContext.createMediaStreamSource(stream);
+      source.connect(analyser);
+
+      getDecibel();
+    });
+
+    if (audioContext) {
+      audioContext.resume().then(() => {
+        console.log("AudioContext is resumed.");
+      });
+    }
+
+    // 음 recoil이나 context api  사용해야할 듯
+    openSidebar(<VocieLogin transcript={transcript} decibel={decibel} />);
+  };
+
+  const startRecognition = () => {
+    if (recognition) {
+      recognition.start();
+      handleClick();
+    }
+  };
+
+  const stopRecognition = () => {
+    if (recognition) {
+      recognition.stop();
+    }
   };
 
   return (
@@ -16,6 +91,11 @@ const Login = () => {
           <h2 className="mt-6 text-3xl font-bold tracking-tight text-center text-gray-900">
             Welcome to the world of Zootopia
           </h2>
+        </div>
+
+        <div>
+          <p>AA : {transcript}</p>
+          <p>Decibel: {decibel}</p>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -96,7 +176,7 @@ const Login = () => {
 
               <div>
                 <button
-                  onClick={handleClick}
+                  onClick={startRecognition}
                   className="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border-2px"
                 >
                   Voice Sign in
