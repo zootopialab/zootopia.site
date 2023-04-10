@@ -20,7 +20,7 @@ const Introduce = () => {
         <div className="z-20">
           <Header />
           <div className="justify-center mt-40 text-center">
-            <p className="mb-8 text-4xl font-bold">This is JMY Homepage</p>
+            <p className="mb-8 text-4xl font-bold">This is JMT Homepage</p>
             <p className="text-lg">
               You can get food recommendations on this site and share them
               together.
