@@ -18,15 +18,15 @@ const Header: FunctionComponent = (): ReactElement => {
 
   return (
     <>
-      <Disclosure as="header" className="z-10 border-b shadow-md bg-primary">
+      <Disclosure as="header" className="z-10 border-b shadow-md">
         {() => (
           <>
-            <div className="px-8 mx-auto divide-y divide-gray-200">
+            <div className="px-8 mx-auto divide-y divide-black">
               <div className="relative flex justify-between h-16">
                 <div className="z-10 flex px-0">
                   <div className="flex items-center flex-shrink-0 cursor-pointer">
-                    <Image src={Logo} alt="logo" className="h-14 w-14" />
-                    <p className="ml-2 text-2xl text-white">JMT</p>
+                    {/* <Image src={Logo} alt="logo" className="h-14 w-14" /> */}
+                    <p className="ml-2 text-2xl text-black">JMT</p>
                   </div>
                 </div>
                 <div className="z-10 flex items-center gap-4">
@@ -71,7 +71,7 @@ const Header: FunctionComponent = (): ReactElement => {
                     </Transition>
                   </Menu>
                   <div>
-                    <Link href="/login">Logout</Link>
+                    <Link href="/login">Login</Link>
                   </div>
                 </div>
               </div>

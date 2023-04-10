@@ -9,7 +9,7 @@ const HeaderLayout = ({ children }: { children: React.ReactNode }) => {
 
       <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* Main area */}
-        <main className="flex flex-col flex-1 min-w-0 px-10 pt-8 pb-32 overflow-y-auto border-gray-200">
+        <main className="flex flex-col flex-1 min-w-0 overflow-y-auto border-gray-200">
           <div className="flex-1 w-full mx-auto min-w-min">{children}</div>
         </main>
       </div>

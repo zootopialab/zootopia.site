@@ -1,10 +1,10 @@
 import React from "react";
-import Login from "./login";
+import Introduce from "./introduce";
 
 const Home = () => {
   return (
     <>
-      <Login />
+      <Introduce />
     </>
   );
 };
