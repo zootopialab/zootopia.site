@@ -6,6 +6,9 @@ import { Logo } from "../asset/image";
 import { PhotoFood } from "../asset/image/main";
 import VocieLogin from "../components/login/VocieLogin";
 import { useDialog } from "../components/useDialog/useDialog";
+import TextField from "../components/utils/Textfield";
+import Label from "../components/utils/Lable";
+import BaseInput from "../components/utils/Input";
 
 const Login = () => {
   const { openSidebar } = useDialog();
@@ -113,63 +116,43 @@ const Login = () => {
 
               <div className="space-y-6">
                 <div>
-                  <label
-                    htmlFor="아이디"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    ID
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      className="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    />
-                  </div>
+                  <TextField
+                    id="email"
+                    name="email"
+                    label="email"
+                    placeholder="email"
+                    variant="outlined"
+                    fullWidth
+                  />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Password
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      autoComplete="current-password"
-                      required
-                      className="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    />
-                  </div>
+                  <TextField
+                    id="password"
+                    name="password"
+                    label="password"
+                    placeholder="password"
+                    variant="outlined"
+                    fullWidth
+                  />
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <input
+                    <BaseInput
                       id="remember-me"
                       name="remember-me"
                       type="checkbox"
-                      className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                      size="medium"
+                      className="mr-2 border-gray-300 rounded "
                     />
-                    <label
-                      htmlFor="remember-me"
-                      className="block ml-2 text-sm text-gray-900"
-                    >
-                      Remember me
-                    </label>
+                    <Label label="remember me" />
                   </div>
 
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-medium text-[indigo-600] hover:text-indigo-500"
+                      className="font-medium text-[indigo-600] hover:text-primary"
                     >
                       Forgot your password?
                     </a>
