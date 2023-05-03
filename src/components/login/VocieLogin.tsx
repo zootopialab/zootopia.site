@@ -7,11 +7,12 @@ const VocieLogin = () => {
   const { setSidebarOpen } = useDialog();
   const router = useRouter();
 
-  const [decibel, setDecibel] = useState(0);
+  const [decibel, setDecibel] = useState<any>(0);
   const [recognition, setRecognition] = useState(null);
   const [transcript, setTranscript] = useState("");
 
   useEffect(() => {
+    // @ts-ignore
     const newRecognition = new window.webkitSpeechRecognition();
     newRecognition.interimResults = true;
     newRecognition.continuous = true;

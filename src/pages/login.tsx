@@ -117,6 +117,7 @@ const Login = () => {
               <div className="space-y-6">
                 <div>
                   <TextField
+                    // @ts-ignore
                     id="email"
                     name="email"
                     label="email"
@@ -128,6 +129,7 @@ const Login = () => {
 
                 <div>
                   <TextField
+                    // @ts-ignore
                     id="password"
                     name="password"
                     label="password"
