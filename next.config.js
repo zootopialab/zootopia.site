@@ -1,6 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: false,
-}
-
-module.exports = nextConfig
+  images: {
+    dangerouslyAllowSVG: true,
+    domains: ["images.unsplash.com", "tistory3.daumcdn.net", "localhost"],
+  },
+};

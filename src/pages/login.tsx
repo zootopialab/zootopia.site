@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { Logo } from "../asset/image";
-import { PhotoFood } from "../asset/image/main";
 import VocieLogin from "../components/login/VocieLogin";
 import { useDialog } from "../components/useDialog/useDialog";
 import TextField from "../components/utils/Textfield";
 import Label from "../components/utils/Lable";
 import BaseInput from "../components/utils/Input";
+import { photoFood } from "../asset/image/main";
 
 const Login = () => {
   const { openSidebar } = useDialog();
@@ -187,7 +187,7 @@ const Login = () => {
         <div className="relative flex-1 hidden w-0 lg:block">
           <Image
             className="absolute inset-0 object-cover w-full h-full"
-            src={PhotoFood}
+            src={photoFood}
             alt="img"
           />
         </div>

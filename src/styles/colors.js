@@ -1,7 +1,7 @@
 module.exports = {
   primary: {
-    main: '#CB2527',
-    DEFAULT: '#CB2527',
-    accent: '#122E87',
+    main: "#FF8000",
+    DEFAULT: "#FF8000",
+    accent: "#122E87",
   },
-}
+};
