@@ -24,7 +24,7 @@ const Login = () => {
               alt="Jiran"
             />
             <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
-              Sign in to your account
+              Jiran Together
             </h2>
           </div>
 

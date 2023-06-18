@@ -40,7 +40,7 @@ const Introduce = () => {
                 <p>
                   <span className="font-semibold text-primary">
                     지란지교 동아리
-                  </span>{" "}
+                  </span>
                   함께 하세요, 즐거움이 가득한 동아리에서 여러분을 기다립니다!
                 </p>
               </div>
