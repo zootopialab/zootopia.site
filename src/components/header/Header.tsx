@@ -5,7 +5,6 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { classNames } from "../../utils/class-names";
 import { UserIcon, TagIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-import { Logo } from "../../asset/image";
 
 const writeNavigation = [
   { name: "ImageUpload", href: "/login" },
@@ -30,8 +29,14 @@ const Header: FunctionComponent = (): ReactElement => {
               <div className="relative flex justify-between h-16">
                 <div className="z-10 flex px-0">
                   <div className="flex items-center flex-shrink-0 cursor-pointer">
-                    {/* <Image src={Logo} alt="logo" className="h-14 w-14" /> */}
-                    <p className="ml-2 text-2xl text-black">JMT</p>
+                    <Image
+                      className="rounded-full cursor-pointer"
+                      src="https://tistory3.daumcdn.net/tistory/571103/attach/c87f780fad0443338143eda499b54d37"
+                      width={30}
+                      height={30}
+                      alt="Jiran"
+                    />
+                    <p className="ml-2">Jiran Together</p>
                   </div>
                 </div>
                 <div className="z-10 flex items-center gap-4">
